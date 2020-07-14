@@ -59,7 +59,6 @@ public class ChooseAreaFragment extends Fragment {
         adapter = new ArrayAdapter<>(getContext(),android.R.layout.simple_list_item_1,dataList);
         listView.setAdapter(adapter);
         Log.d("test","Fragmentcreateview");
-        Log.d("test2","Fragmentcreateview");
         return view;
     }
     @Override
@@ -75,7 +74,7 @@ public class ChooseAreaFragment extends Fragment {
                     selectedCity =cityList.get(position);
                     queryCounties();
                 }else if(currentLevel == LEVEL_COUNTY){
-
+                    Log.d("test","切换WeatherActivity页面");
                     String weatherId = countyList.get(position).getWeatherId();
                     if (getActivity() instanceof MainActivity){
                         Intent intent = new Intent(getActivity(),WeatherActivity.class);
@@ -118,14 +117,15 @@ public class ChooseAreaFragment extends Fragment {
 
             titleText.setText("中国");
             backButton.setVisibility(View.GONE);
-            Log.d("test"," backButton.setVisibility");
 
             provinceList = DataSupport.findAll(Province.class);
-            Log.d("test","  provinceList");
+
             if(provinceList.size()>0){
+                Log.d("test",provinceList.size()+"");
                 dataList.clear();
                 for(Province province:provinceList){
                     dataList.add(province.getProvinceName());
+                    Log.d("test",province.getProvinceName());
                 }
                 adapter.notifyDataSetChanged();
                 listView.setSelection(0);

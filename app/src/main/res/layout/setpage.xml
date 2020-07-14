@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:adjustViewBounds="true">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="后台配置"
+    android:textColor="#fff"
+    android:background="@color/colorPrimary"
+    android:layout_alignParentTop="true"/>
+    <View
+        android:id="@+id/line"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_centerInParent="true"
+        android:background="#fff"/>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:background="#fff"
+        android:layout_above="@id/line">
+
+        <Switch
+            android:id="@+id/switch_updatedata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="更新数据"
+            android:textColor="#fff"
+            android:switchMinWidth = "60dp"
+
+            android:textSize="40sp"
+            android:background="#8000"
+            android:textAlignment="gravity"
+            />
+    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/settime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_below="@id/line"
+            android:orientation="horizontal"
+            android:background="#fff">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Time"
+                android:textColor="#fff"
+                android:background="#8000"
+                android:textSize="40sp"
+            />
+
+            <EditText
+                android:id="@+id/data1_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:hint="8"
+                android:inputType="number"
+                android:background="#8000"
+                android:gravity="right"
+                android:textSize="40sp"
+                android:textColor="#fff"
+                />
+
+        </LinearLayout>
+
+
+
+        <Button
+            android:id="@+id/button_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:text="提交" />
+
+
+
+
+</RelativeLayout>
+

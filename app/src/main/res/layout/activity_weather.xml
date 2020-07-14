@@ -50,5 +50,18 @@
            android:layout_height="match_parent"
            android:layout_gravity="start"
           />
+
+        <!-- 右侧滑动栏 -->
+
+        <fragment
+            android:id="@+id/set_servercie"
+            android:name="com.example.coolweather.SetParam"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"/>
+
+
     </android.support.v4.widget.DrawerLayout>
+
+
 </FrameLayout>

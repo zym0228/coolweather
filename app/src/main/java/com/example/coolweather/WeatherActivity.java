@@ -1,5 +1,6 @@
 package com.example.coolweather;
 
+
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -32,8 +33,10 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class WeatherActivity extends AppCompatActivity {
+
     public DrawerLayout drawerLayout;
     private Button navButton;
+    private Button setButton;
     public SwipeRefreshLayout swipeRefresh;
     private String mWeatherId;
 
@@ -75,6 +78,7 @@ public class WeatherActivity extends AppCompatActivity {
 
         drawerLayout = (DrawerLayout)findViewById(R.id.draw_layout);
         navButton = (Button)findViewById(R.id.nav_button);
+        setButton = (Button)findViewById(R.id.set_button);
 
         swipeRefresh = (SwipeRefreshLayout)findViewById(R.id.swipe_refresh);
         swipeRefresh.setColorSchemeResources(R.color.colorPrimary);
@@ -88,9 +92,13 @@ public class WeatherActivity extends AppCompatActivity {
         }else
         {
             mWeatherId = getIntent().getStringExtra("weather_id");
-            Log.d("test2","weatherId"+mWeatherId);
-            weatherLayout.setVisibility(View.INVISIBLE);
-            requestWeather(mWeatherId);
+            if(mWeatherId!=null)
+            {
+                Log.d("test2","weatherId"+mWeatherId);
+                weatherLayout.setVisibility(View.INVISIBLE);
+                requestWeather(mWeatherId);
+            }
+
         }
 
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -104,6 +112,14 @@ public class WeatherActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+
+        setButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("test","hello!");
+                drawerLayout.openDrawer(GravityCompat.END);
             }
         });
 
